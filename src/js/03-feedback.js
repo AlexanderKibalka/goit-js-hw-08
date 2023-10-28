@@ -19,7 +19,20 @@ form.addEventListener("input", saveToLocalStorage);
 
 form.addEventListener("submit", (evt) => {
   evt.preventDefault();
+
+  if (form.elements.email.value === '' || form.elements.message.value === '') {
+    return alert('Обидва поля мають бути заповнені!');
+  }
+    
+  const formData = {
+    email: form.elements.email.value,
+    message: form.elements.message.value,
+  };
+  console.log(formData);
+
   localStorage.removeItem(localStorageKey);
   form.reset();
-  console.log(savedFormData);
 });
+
+
+  
